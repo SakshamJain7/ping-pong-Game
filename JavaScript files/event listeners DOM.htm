@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>event</title>
+</head>
+<body>
+ 
+  <h1 id="first">big big</h1>
+     <ul class="first">
+     	<li class="second">qwrty</li>
+     	<li class="second">qwrtyas</li>
+     	<li >qwrtyhjakj</li>
+     	<li class="second">qwrtyajksa</li>
+     	<li >qwrtyaj</li>
+     </ul>
+
+     <script>
+     
+     	const list = document.getElementById("first");
+     	
+     	list.addEventListener("click", function()
+     	{
+     		console.log('cld');     	
+     	})
+
+
+     	list.addEventListener("click", hello);
+        function hello()
+        {
+        	console.log('clicked');
+        }
+
+
+        const h1= document.querySelectorAll('.second');
+        for(let x=0 ;x<h1.length; x++ )
+        {
+        h1[x].style.backgroundColor = 'yellow';
+        h1[x].style.padding = '20px';
+
+
+        h1[x].addEventListener('click', function()
+        {
+        	console.log(this);
+
+        	let var1 = this.classList.toggle('second');
+        	console.log(var1);
+        })
+}
+
+
+     
+     </script>	
+  
+</body>
+</html>

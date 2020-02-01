@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>element style updates</title>
+</head>
+<body>
+ 
+ <div class="first">link 1</div>
+  <div class="first">link 2</div>
+  <div class="first">link 3</div>
+ <script >
+ 	const el = document.querySelectorAll('.first');
+ 	console.log(el);
+ 	for(let x=0; x<el.length; x++)
+ 	{
+ 	   var h = el[x].textContent = 'hello';
+ 	   console.log(el[x].textContent);
+ 	   el[x].style.backgroundColor = 'yellow';
+ 	   el[x].style.color = 'red';
+ 	   el[x].style.display = 'none'; 
+ 	   el[x].style.display = 'block';
+ 	   el[x].style.border = '5px dotted black';
+ 	   el[x].style.fontSize = '30px';
+       
+ 	}
+
+ </script>
+</body>
+</html>

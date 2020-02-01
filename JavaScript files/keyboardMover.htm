@@ -1,0 +1,46 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>key</title>
+</head>
+<body>
+	<script>
+		
+		let player = {
+			speed : 100,
+			x: 100,
+			y: 100,
+		}
+
+		window.addEventListener('DOMContentLoaded', Move);
+
+		document.addEventListener('keydown', function(e)
+		{
+			if(e.keyCode === 37 ){player.x -= player.speed}
+				if(e.keyCode === 38 ){player.y -= player.speed}
+					if(e.keyCode === 39 ){player.x += player.speed}
+						if(e.keyCode === 40 ){player.y += player.speed}
+				player.el.style.top = player.y +'px';
+				player.el.style.left = player.x + 'px';
+				console.log(player.el.style.top = player.y +'px');			
+ 
+		})
+
+
+		function Move()
+		{
+			player.el = document.createElement('div');
+			player.x = 100;
+			player.y = 100;
+			player.el.style.width = '10px';
+			player.el.style.height = '10px';
+			player.el.style.backgroundColor = 'green';
+            player.el.style.position = 'absolute';
+             player.el.style.top = player.y + 'px';
+             player.el.style.left = player.x+ 'px';
+            document.body.appendChild(player.el);
+        }
+	</script>
+
+</body>
+</html>

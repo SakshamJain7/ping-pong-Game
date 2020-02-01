@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>prototype</title>
+</head>
+<body>
+	<script>
+		function person(first,last){
+            this.firstname = first;
+            this.lastName = last;
+  		}
+
+  		person.prototype.FullName = function(){
+  			return this.firstname + ' ' + this.lastName;
+  		}
+  		
+
+        const m = new person('laurence','jain');
+  		console.log(m); 
+  		console.log(m.FullName());
+
+        // Lesson Challenge 
+
+  		// Date.prototype.addDays = function(days){
+  		// 	return new Date(this.valueOf() + days*864e5)
+  		// }
+  		// console.log(new Date().addDays(5));
+	</script>
+
+</body>
+</html>

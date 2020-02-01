@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>children</title>
+</head>
+<body>
+  
+  <div class="first">link 1 <span>s</span><span>sd</span></div>
+  <div class="first">link 1</div>
+  <div class="first">link 1</div>
+
+  <script>
+  	const el = document.querySelector('div.first');
+  	console.log(el.children);
+  	for(let i=0; i < 3; i++)
+  	{
+  		 console.log(el.childNodes[i].textContent);
+  	}
+  </script>
+</body>
+</html>

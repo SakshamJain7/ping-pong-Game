@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>xhr</title>
+</head>
+<body>
+
+	<div></div>
+	<button>WORKING</button>
+	<script>
+
+  //THIS IS XHR STARTING.....................................................................
+
+		// let xhr = new XMLHttpRequest();
+		// const url = "https://api.chucknorris.io/jokes/random";
+		// xhr.onreadystatechange = function(){
+		// 	console.log(xhr.readyState);
+		// 	if(xhr.readyState== 4 && xhr.status== 200 )
+		// 	{
+		// 		console.log(xhr.response);
+		// 		let joke = JSON.parse(xhr.response);
+		// 		console.log(joke.value);
+  //               document.querySelector('div').innerHTML = joke.value ; 
+		// 	}
+		// }
+		// xhr.open('GET',url);
+		// xhr.send();
+		// console.log(xhr); 
+
+
+
+//THIS IS FETCH STARTING..................................................................... 
+
+			const url = "https://randomuser.me/api";
+			const btn = document.querySelector('button');
+			const input = document.createElement('input');
+			input.setAttribute('type', 'number');
+			const output = document.querySelector('div'); 
+			document.body.appendChild(input);
+			document.body.appendChild(output);
+            btn.addEventListener('click',getjoke );
+
+			function getjoke()
+			{
+				let temp = url + '?results=' + input.value; 
+				fetch(temp)
+				.then(function(el){
+					return el.json()
+				})
+				.then(function(data){
+					console.log(data.results);
+					let html;
+					for(let x=0; x< data.results.length; x++)
+					{
+						console.log(data.results[x]);
+						html += data.results[x].name.first + '' + data.results[x].name.last + '<br>';
+					}
+					output.innerHTML = html;
+ 
+
+				//	document.querySelector('div').textContent = data.results;
+				})
+
+			} 
+
+
+
+
+
+	</script>
+
+</body>
+</html>

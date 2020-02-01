@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>color</title>
+</head>
+<body>
+	<button class="id1">color changer</button>
+
+	<script>
+		const color = document.querySelector('.id1');
+		color.onclick = function(){
+			let mycolor = "rgb("+ random(255)+ ","+random(255)+ ","+ random(255)+")";
+			document.body.style.backgroundColor = mycolor;
+		}
+
+		function random(num)
+		{
+		  return Math.floor(Math.random() * (num + 1));
+
+		}
+	</script>
+
+</body>
+</html>

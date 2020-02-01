@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>event</title>
+</head>
+<body>
+	<ul>
+		<li class="first" >first item</li>
+		<li class="first">first1 item</li>
+		<li class="first">first2 item</li>
+		<li class="first">first3 item</li>
+		
+	</ul>
+
+
+	<script>
+      const list = document.querySelectorAll('.first');
+      
+      list.forEach(function(el,index)
+      {
+      	
+      	console.log(el);
+      	el.addEventListener('click', function(e)
+      	{
+      		console.log(e.target);
+      		console.log(this);
+      		let mycolor = "rgb("+ random(255)+ ","+random(255)+ ","+ random(255)+")";
+      		e.target.style.backgroundColor = mycolor;
+      	})
+      })
+
+      
+
+     /* for(let x=0; x<list.length ;x++)
+      {
+      	list[x].onclick = function(e){
+      		list[x].style.padding = '30px';
+      		list[x].style.fontSize = '30px';
+			let mycolor = "rgb("+ random(255)+ ","+random(255)+ ","+ random(255)+")";
+			list[x].style.backgroundColor = mycolor;
+			let mcolor = "rgb("+ random(255)+ ","+random(255)+ ","+ random(255)+")";
+			list[x].style.color = mcolor;
+		}
+      }   */
+
+      function random(num)
+		{
+		  return Math.floor(Math.random() * (num + 1));
+
+		}  
+
+
+	</script>
+
+</body>
+</html>

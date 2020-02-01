@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>typingtest</title>
+</head>
+<body>	
+     <div class="message"></div>
+     <textarea rows="5" cols="50" disabled></textarea><br>
+     <button type="button">Play</button>
+
+	<script>
+
+	const message =	document.querySelector('.message');
+    const text = document.querySelector('textarea');
+    const but = document.querySelector('button');
+    const array = ['hello who are you', 'world yo yo', 'this is Saksham jain'];
+
+    let startTime, endTime;
+    but.addEventListener('click', function(){
+    	if(this.innerText == 'Play'){
+    		text.disabled = false;
+    		playGame();
+    	}else if(this.innerText == 'Done'){
+    		text.disabled= true;
+    		endGame();
+
+    	}
+    })
+
+    
+
+
+    function playGame(){
+
+       let ran = Math.floor(Math.random()* array.length)  ;
+    	message.innerText = array[ran];
+    	console.log("Which string of array? = " + ran);
+    	let date = new Date();
+    	startTime = date.getTime();
+    	but.innerText = 'Done';
+    	console.log("startTime :" + startTime);
+     }
+
+     function endGame(){
+     	let date = new Date();
+    		endTime = date.getTime();
+    		but.innerText = 'Play';
+        let totalTime = ((endTime - startTime)/1000);
+    		console.log("Total time :" + totalTime);
+    		let str = text.value;
+    		let countword = wordCounter(str);
+    		let speed = Math.round((countword/totalTime)*60);
+    		wordChecker(message.innerText, str);
+    		let finalMessage = "You typed at" + speed + "words/min";
+    		message.innerHTML =  "<br>" + finalMessage  ;
+
+     }
+
+     function wordChecker(str1, str2){
+           let word1 = str1.split(' ');
+           let word2 = str2.split(' ');
+           let cnt = 0;
+
+           word1.forEach(function(item , index){
+           	if(item === word2[index]){
+           		cnt++;
+           	}
+           })
+           console.log(cnt + ' correct');
+
+
+           }
+
+     
+
+     function wordCounter(string){
+           let response = string.split(' ').length;
+           console.log( "No. of words : " + response);
+           return response;
+     }
+
+	</script>
+    
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>key</title>
+</head>
+<body>
+<h1>hello hello hello</h1>
+<ul>
+		<li >first item</li>
+		<li >first1 item</li>
+		<li >first2 item</li>
+		<li >first3 item</li>
+		
+	</ul>
+	<input type="text" name="newitem">
+	<button id="clicker">ADD+</button>
+
+	<script>
+
+    const ul = document.querySelector('ul');
+    document.addEventListener('keypress', function(e)
+     {
+       const li = document.createElement('li');
+       const input = e.key + '('+ e.keyCode + ')';
+       const text = document.createTextNode(input);
+       li.appendChild(text);
+       ul.appendChild(li);
+
+
+    })
+
+
+
+  /*  const ele = document.querySelector('input');
+    ele.addEventListener('keypress', additem)
+
+    function additem(event)
+    {
+    	console.log(event);
+    	document.querySelector('h1').textContent = ele.value; 
+
+    	if(event.keyCode === 13 && ele.value.length>1)
+    	{
+    		document.querySelector('h1').style.backgroundColor = 'yellow';
+    	}
+    }    */
+
+
+
+	/*
+       let keys= {};
+		document.addEventListener('keydown', presskeyon);
+		document.addEventListener('keyup', presskeyoff);
+
+		function presskeyon(event)
+		{
+			//console.log(event.key);
+			event.preventDefault();
+			keys[event.key]= true;
+            console.log(keys);
+
+		}
+		
+		function presskeyoff(event)
+		{
+			//console.log(event.key);
+			event.preventDefault();
+			keys[event.key]= false;
+			console.log(keys);
+
+
+		}
+*/
+
+
+	</script>
+</body>
+</html> 

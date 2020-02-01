@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>try</title>
+</head>
+<body>
+	<script>
+		let input = document.createElement('input');
+		input.setAttribute('type','text');
+		document.body.appendChild(input);
+		let btn = document.createElement('button');
+		btn.setAttribute('type','button');
+		btn.textContent = 'INPUT';
+	 	let div = document.createElement('div');
+        document.body.appendChild(btn);
+		document.body.appendChild(div);
+		document.querySelector('div');
+		
+
+		btn.addEventListener('click', tester);
+
+		function tester(){
+		let num  = input.value;
+		try{
+			if(num ==='') throw 'No value';
+			if(isNaN(num)) throw 'NOT A NUMBER';
+            div.textContent = num * 10;
+		} 
+         catch(error){
+         	div.textContent = error;
+         }
+         finally{
+         	input.value = '';
+         }
+
+		}
+ 
+	</script>
+
+</body>
+</html>

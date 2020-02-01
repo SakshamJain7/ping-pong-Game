@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TIP CALCULATOR </title>
+</head>
+<body>
+	<div class="output"></div>
+	<input type="number">
+	<button type="button">TIP</button>
+	<script>
+		const output= document.querySelector('div.output');
+		const but = document.querySelector('button');
+		const input = document.querySelector('input');
+        but.addEventListener('click', function(){
+        	console.log('click');
+            let tip = input.value*0.015;
+
+        	output.innerHTML = `<h1> You should tip $${tip.toFixed(2)} on cost of $${input.value} </h1> `;
+        })
+	</script>
+
+</body>
+</html>

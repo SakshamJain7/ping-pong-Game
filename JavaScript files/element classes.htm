@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>element classes</title>
+</head>
+<body>
+	<h1 class="first ">big big</h1>
+     <ul class="first">
+     	<li class="second">qwrty</li>
+     	<li class="second">qwrtyas</li>
+     	<li >qwrtyhjakj</li>
+     	<li class="second">qwrtyajksa</li>
+     	<li >qwrtyaj</li>
+
+     </ul>
+
+    <script >
+    	let  v = document.querySelectorAll('li');
+    	console.log(v);
+    	 v.forEach(function(el,index)
+    	 {
+            console.log(el);
+            el.textContent = el.className ? el.className : 'NoClass';
+            el.classList.add('second');
+            // el.classList.remove('hello');
+            el.classList.toggle('test');
+            el.classList.replace('test','test22');
+            console.log(el.classList.contains('second'));
+    	 })
+
+    </script>
+
+
+</body>
+</html>

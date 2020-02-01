@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ternary</title>
+</head>
+<body>
+	<script>
+		const arr = ["welcome", "hello", "yes", "no"];
+		let temp = randomItem(arr);
+		let res = document.createTextNode(temp);
+		document.body.appendChild(res);
+
+
+
+
+		function randomItem(my)
+		{
+			return my[Math.floor(Math.random()*my.length)];
+
+		}
+	</script>
+
+</body>
+</html>

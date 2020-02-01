@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>back</title>
+</head>
+<body>
+	<button onclick="control()">changeIt</button>
+
+
+	<script>
+
+		function control()
+		{
+		document.body.style.backgroundColor = randomcolor();
+
+		function randomcolor()
+		{
+			return '#' + Math.random().toString(16).substr(-6);
+		}
+	}
+	</script>
+
+</body>
+</html>

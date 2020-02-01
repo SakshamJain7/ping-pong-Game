@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FunctionGenerator</title>
+</head>
+<body>
+	<script>
+		let myblock;
+		let funlist = [];
+		let myfunlist;
+		const moveArray = ['right', 'left', 'down', 'up'];
+
+
+		document.addEventListener('DOMContentLoaded' , function(){
+			myblock = document.createElement('div');
+			myblock.textContent = 'i am saksham jain';
+
+			myblock.style.height = '100px';
+			myblock.style.width = '100px';
+			myblock.style.backgroundColor = 'red';
+			 myblock.style.lineHeight = '100px';
+			myblock.style.position = 'absolute';
+			myblock.style.paddingTop = '60px';
+			
+			myblock.style.top = '100px';
+			myblock.style.left = '150px';
+			/*myblock.style.bottom = '100px';
+			myblock.style.right = '100px';
+*/
+			myblock.style.color = 'white';
+			myblock.style.textAlign = 'center'; 
+			document.body.appendChild(myblock);
+			myfunlist = document.createElement('div');
+			document.body.appendChild(myfunlist);
+
+
+		})
+
+		document.addEventListener('keydown', function(e){
+			e.preventDefault();
+			let key = e.keyCode;
+			if(key === 37){
+				addFun('left');
+			}
+			else if(key === 38){
+				addFun('up');
+			}
+			else if(key === 39){
+				addFun('right');
+			}
+			else if(key === 40){
+				addFun('down');
+			}
+			else if(key === 67)
+			     {myblock.style.backgroundColor = randomColor();}
+			else if(key === 82){
+				let temp = moveArray[Math.floor(Math.random()*moveArray.length )];
+				addFun(temp);
+			}
+			else if(key === 13 || key === 32){
+				mover();
+			}
+		})
+
+
+		function mover(){
+			if(funlist.length > 0){
+				let cur = myblock.getBoundingClientRect();
+				console.log(cur);
+			    let el = funlist.shift();
+			    let item =  el.textContent.replace("+", "");
+			    myfunlist.removeChild(el);
+			    myblock.innerHTML = "Move : " + item;
+
+			    if(item === 'left'){
+			    	myblock.style.left = cur.left - cur.width + "px";
+			    }
+			    if(item === 'up'){
+			    	myblock.style.top = cur.top - cur.height + 'px';
+			    }
+			    if(item === 'right'){
+			    	myblock.style.left = cur.left + cur.width + 'px';
+			    }
+			    if(item === 'down'){
+			    	myblock.style.top = cur.top + cur.height + 'px';
+			    }
+			    setTimeout(mover, 100);
+		}
+		else{
+			myblock.innerHTML = "Set Path";
+			return;
+		}
+	}
+
+
+
+
+		function randomColor(){
+			return '#'+ Math.random().toString(16).substr(-6);
+		}
+
+
+		function addFun(val){
+			
+			let span  = document.createElement('span');
+			span.textContent = '+'+ val;
+			span.style.padding = '10px';
+			span.style.border = '1px solid #ddd';
+			
+
+			span.addEventListener('mouseover', function(){
+				this.style.backgroundColor = 'red';
+			    this.style.color = 'white';
+
+			})
+			span.addEventListener('mouseout', function(){
+				this.style.backgroundColor = 'white';
+		 		this.style.color = 'black';
+				
+			})
+			span.addEventListener('click', function(){
+				let eleIndex = funlist.indexOf(this);
+				let tempRemove = funlist.splice(eleIndex,1);
+				myfunlist.removeChild(this); 
+				})
+			myfunlist.appendChild(span);
+			console.log(funlist);
+			funlist.push(span);
+		}
+
+
+
+
+
+		function goleft(){
+			let temp = myblock.offsetLeft;
+			temp = temp - 50;
+			myblock.style.left = temp + 'px'; 
+		}
+
+		function goright(){
+			let temp = myblock.offsetLeft;
+			temp = temp + 50;
+			myblock.style.left = temp + 'px'; 
+		}
+
+		function goup(){
+			let temp = myblock.offsetTop;
+			temp = temp - 50;
+			myblock.style.top = temp + 'px'; 
+		}
+
+		function godown(){
+			let temp = myblock.offsetTop;
+			temp = temp + 50;
+			myblock.style.top = temp + 'px'; 
+		}
+
+	</script>
+
+</body>
+</html>

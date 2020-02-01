@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>heello</title>
+</head>
+
+<body>
+	<p class="q">helo i am saksham jain</p>
+	 <div id="myid">qwerty qwerty qwerty qwety qwerty ..</div>
+    <ul class="first">
+    	<li class="qwerty"><a href="">link one</a></li>
+    	<li class="qwerty"><a href="">link two</a></li>
+    	<li class="qwerty"><a href="">link three</a></li>
+    	<li class="4"><a href="">link four</a></li>
+    </ul>
+
+
+<script>
+{
+ 	let list = document.querySelectorAll('.qwerty');
+ 	
+ 	for(let x =0; x<list.length ; x++)
+ 	{
+ 		var num = list[x];
+ 		num.textContent = (x + 1) + " Updated";
+ 		console.log(num);
+ 	}
+    
+    list.forEach(function(el,index)
+    {
+       el.textContent = `${index} - Updated..`;
+       el.style.backgroundColor = "yellow";
+       console.log(list[index]);
+    })
+    
+    
+
+
+ } 
+ </script>
+
+</body>
+</html>

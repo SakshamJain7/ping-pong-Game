@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list</title>
+</head>
+<body>
+	<ul>
+		<li >first item</li>
+		<li >first1 item</li>
+		<li >first2 item</li>
+		<li >first3 item</li>
+		
+	</ul>
+	<input type="text" name="newitem">
+	<button id="clicker">ADD+</button>
+
+	<script>
+		const main = document.querySelector('ul');
+		const inputlist= document.querySelector('input');
+		const butt = document.getElementById('clicker');
+
+		butt.addEventListener('click',function()
+		{
+			if(inputlist.value.length > 3){
+				let li = document.createElement('li');
+				let text = document.createTextNode(inputlist.value);
+				li.appendChild(text);
+				main.appendChild(li);
+			}
+		})
+
+	</script>
+  
+</body>
+</html>

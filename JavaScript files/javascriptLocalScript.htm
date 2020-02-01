@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>localStorage</title>
+</head>
+<body>
+	<script>
+		const myobj = {name: 'saksham', age : '18'};
+		let temp = JSON.stringify(myobj);
+		localStorage.setItem('tem', temp);
+       // localStorage.getItem('tem');
+       const get = JSON.parse(localStorage.getItem('tem'));
+       console.log(get);
+
+		if(localStorage.getItem('num'))
+		{
+			let cnt = localStorage.getItem('num')
+			cnt = Number(cnt);
+			cnt++;
+			localStorage.setItem('num', cnt);
+
+		}
+		else
+		{
+			localStorage.setItem('num',1);
+		}
+		console.log(localStorage.getItem('num'));
+	</script>
+
+</body>
+</html>

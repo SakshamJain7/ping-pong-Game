@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dom</title>
+</head>
+<body>
+
+	<h1 class="first ">big big</h1>
+     <ul class="first">
+     	<li class="second">qwrty</li>
+     	<li class="second">qwrtyas</li>
+     	<li >qwrtyhjakj</li>
+     	<li class="second">qwrtyajksa</li>
+     	<li >qwrtyaj</li>
+
+     	<script>
+     		const newe = document.createElement('div');
+     		newe.style.backgroundColor = 'brown';
+     		newe.style.fontSize = '40px';
+     		newe.id = 'test';
+     		//newe.textContent = 'hello world';
+     		const txt = document.createTextNode('hello world 1');
+     		newe.appendChild(txt);
+     		document.body.appendChild(newe);
+     		console.log(newe);
+
+     		const select = document.querySelector('h1');
+     		document.body.insertBefore(newe,select);
+     	</script>
+
+</body>
+</html>

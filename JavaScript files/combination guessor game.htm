@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>combinatonGame</title>
+
+	<style>
+	
+	.push{
+		font-size : 3em;
+	}
+</style>
+
+
+</head>
+
+
+<body>
+	<div class="mes">Guess Combo</div>
+	<div class="game"></div>
+
+	<button type="button">Start</button>
+	<div><small>Blue means too low, & Red means too high...</small></div>
+
+	<script>
+		const Gamearea = document.querySelector('.game');
+		const button = document.querySelector('button');
+		const message = document.querySelector('.mes');
+		let score =0;
+		
+
+
+		let gameplay = false;
+		button.addEventListener('click', function(){
+			if(!gameplay)
+			{
+				gameplay = true;
+				score = 0;
+                Gamearea.innerHTML = "";
+				maker(4);
+				button.innerHTML = "Check Combo";
+
+				message.innerHTML= " Guess the combo";
+			}	
+			else
+			 {
+				    score++;
+				    message.innerHTML = "Guesses" + score;
+					const numbers = document.querySelectorAll(".push");
+					let wincond = 0;
+					   for(let i=0; i<numbers.length; i++){
+
+						  if(numbers[i].value == numbers[i].correct)
+						    	{
+						    		numbers[i].style.backgroundColor = 'green';
+						    	   numbers[i].style.color = 'white';
+							       console.log("Match");
+							      wincond++;
+							  }
+
+						   
+					else{
+						let color  = (numbers[i].value < numbers[i].correct ? "blue" : 'red');
+							numbers[i].style.backgroundColor = color;
+							numbers[i].color = 'black';
+							console.log("No Match");
+						}
+
+                         if(wincond == numbers.length){
+							gameEnd();
+						    }
+				    }
+			}
+			
+		})
+
+		function gameEnd(){
+			message.innerHTML = "you solved the game in " + score + "guesses";
+			button.innerHTML = "Restart Game";
+			gameplay = false;
+		}
+
+		function maker(num)
+		{
+		  for(let x=0; x<num; x++)
+			{
+			let el = document.createElement("input");
+			el.setAttribute('type','number');
+			el.max = 9;
+			el.min = 0;
+			el.size = 1;
+			el.style.width = "60px";
+			el.order = x;
+			el.classList.add("push");
+			el.correct = Math.floor(Math.random()*10);
+			el.value = 0;
+			console.log(el);   
+			Gamearea.appendChild(el);
+		   }
+		}
+		
+	</script>
+
+</body>
+</html>	

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Word Scramble</title>
+
+	<style>
+		
+	</style>
+</head>
+<body>
+      
+      <div class="message"></div>
+      <input type="text" class="hidden">
+      <button class="but">Start</button>
+
+
+	<script>
+		const message = document.querySelector(".message");
+		const guess = document.querySelector("input");
+		const button = document.querySelector("button");
+
+		let inplay = false;   
+		const arry = ["javascript", "course", "hello", "document", "website"];
+		let Scramble = "";
+		let Scrambled = "";
+
+		button.addEventListener("click", function(){
+ 
+			if(!inplay){
+				inplay= true;
+				button.innerHTML = "Guess";
+				guess.classList.toggle("hidden");
+				Scramble = createword();
+				Scrambled = randomArry(Scramble.split("")).join(""); 
+				message.innerHTML = Scrambled + " " + Scramble;
+
+			}
+
+		})
+
+		function createword(){
+			let randomindex = Math.floor(Math.random()*arry.length);
+			let randomword = arry[randomindex];
+
+			return randomword;	
+		} 
+
+		function randomArry(arr)
+		{
+			for(let i=arr.length-1; i>0 ; i--){
+				let temp = arr[i];
+				let j= Math.floor(Math.random() * (i+1));
+				console.log(j);
+				console.log(temp);
+				arr[i] = arr[j];
+				arr[j] = temp;	
+
+			}
+			return arr;
+		}
+
+
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>magicball</title>
+</head>
+<body>
+   <div class="question">Ask your question below given input...</div>
+   <input type="text" placeholder="question?">
+   <button class="but">Ask</button>
+   <div class="answer"></div>
+	<script>
+		let question = document.querySelector('.question');
+		let button = document.querySelector('.but');
+		let ans = document.querySelector('.answer');
+		let input = document.querySelector('input')
+
+
+		button.addEventListener('click', function(){
+			let inputval = input.value;
+			question.innerText = inputval;
+            let arry = ['yes','Obviously', 'nice', 'Good job', 'fuck you', 'No'];
+            let ran = Math.floor(Math.random() * arry.length);
+            ans.innerText = arry[ran];
+		})
+
+		button.addEventListener('keydown', )
+
+		function(){
+			let inputval = input.value;
+			question.innerText = inputval;
+            let arry = ['yes','Obviously', 'nice', 'Good job', 'fuck you', 'No'];
+            let ran = Math.floor(Math.random() * arry.length);
+            ans.innerText = arry[ran];
+
+		
+	</script>
+
+</body>
+</html>

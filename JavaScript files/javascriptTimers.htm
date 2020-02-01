@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>timers</title>
+</head>
+<body>
+	<div></div>
+	<script>
+		const intervalID = window.setInterval(mycallback,500,'interval');
+		const setTimeID = window.setTimeout(mycallback,500,'setTimeout');
+
+		function mycallback(mes)
+		{
+			console.log(mes);
+		}
+		
+		function stopInterval()
+		{
+			clearInterval(intervalID);
+		}
+
+
+      //COUNTDOWN TIMER
+		const timer = window.setInterval(interval, 1000)
+		let y=10;
+
+		function interval()
+		{
+			el.textContent = y;
+			y--;
+			if(y<0)
+			{
+				clearInterval(timer);
+			}
+		}
+      //END
+		
+
+      //ELEMENT MOVER USING requestanimationframe
+		let x=0;
+	
+			let el = document.querySelector('div');
+			el.style.width = '60px'
+			el.style.height = '60px';
+			el.style.fontSize = '50px';
+			el.style.backgroundColor = 'red';
+
+			
+	  
+	  function step()
+	  {
+	  	x++;
+	  	el.style.transform = 'translateY('+x+'px)';
+        if(x<600)
+        {
+        	window.requestAnimationFrame(step);
+        }	  	
+	  }
+        	window.requestAnimationFrame(step);
+
+
+	</script>
+
+</body>
+</html>

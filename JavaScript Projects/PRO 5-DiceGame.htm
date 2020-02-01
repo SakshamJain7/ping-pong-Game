@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice</title>
+</head>
+
+<style type="text/css">
+	#player1,#player2{
+        display: inline-block;
+        width: 200px;
+
+        height: 150px;
+        border: 2px solid green;
+        border-radius: 20px;
+        margin: 90px;
+        margin-left: 130px;
+        font-size: 30px;
+        text-align: center;
+	}
+	#butt{
+        width: 60%;
+        margin-left: 40px;
+        background-color: transparent;
+        height: 50px;
+        color: red;
+        border-radius: 100%;
+        border: 5px solid red;
+        box-shadow: -15px 10px 20px 0px black;
+
+	}
+	.output{
+		text-align: auto;
+		margin-left: 8em;
+        font-size: 40px;
+	}
+</style>
+
+
+<body>
+	<div class="output"></div>
+	<div id="player1"></div>
+	<div id="player2"></div> 
+	<div class="but">
+	<button type="button" id="butt">Roll</button>
+    </div>
+    <script>
+    	const player1 = document.querySelector('#player1');
+    	const player2 = document.querySelector('#player2');
+        const button = document.querySelector('button');
+        const out = document.querySelector('.output');
+        button.addEventListener('click', function(){
+        	console.log('works');
+        	let rolls = [roll(6),roll(6)];
+        	player1.innerHTML = '<h1>' + rolls[0] + '</h1>'; 
+        	player2.innerHTML = '<h1>' + rolls[1] + '</h1>'; 
+        	console.log(rolls);
+        	if(rolls[0] == rolls[1]){
+        		out.innerText = 'It was a draw';
+        	}else if(rolls[0] > rolls[1 ]){
+        		out.innerText  = 'Player 1 Wins!!!';
+        	}else if(rolls[0] < rolls[1]){
+        		out.innerText = 'Player 2 Wins!!!';
+        	}
+
+
+        })
+
+        function roll(num){
+        	let rnum = Math.floor(Math.random()* num) + 1;
+        	let n = 9855 + rnum;
+        	let char  = '&#' + n + ';';
+        	return rnum + ' ' + char;
+        }
+
+    	
+    </script>
+
+</body>
+</html>

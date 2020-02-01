@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>manipulation</title>
+</head>
+<body>
+   
+ <p class="first">adk</p>
+ <ul>
+ 	<li id="second">hello</li>
+ 	<li id="second">hellosds</li>
+ 	<li id="second">hello1123</li>
+ 	<li>helloatfaefa</li>
+ </ul>
+
+	<script >
+		{
+
+       //using setAttribute and getAttribute()
+		 let v = document.querySelector(".first");
+		v.setAttribute('align', 'center');
+		let div = v.getAttribute('align');
+		console.log(div);
+
+		const a = document.querySelectorAll("#second");
+		a.forEach(function(el,index)
+		{
+			
+			
+			el.setAttribute("href", "http:www.google.com");
+           console.log(el.getAttribute("href"));
+
+		})
+
+		const listitems = document.querySelectorAll('li');
+		listitems.forEach(function(item,count)
+		{
+			item.id = 'li' + count;
+			item.textContent = 'list item#' + count;
+			console.log(item.id + ' '  + item.textContent);
+			
+		})
+
+     }
+  
+	</script>
+
+</body>
+</html>

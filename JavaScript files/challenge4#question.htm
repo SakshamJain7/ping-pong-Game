@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>challenge</title>
+</head>
+<body>
+	<style>
+		.red
+		{
+			background-color: #eee;
+			color: red;
+			text-decoration: line-through;
+		}
+
+	</style>
+
+	<ul>
+		<li>1 # item</li>
+		<li>2 # item</li>
+		<li>3 # item</li>
+		<li>4 # item</li>
+
+	</ul>
+	<input type="text" name="listItem">
+	
+
+	<script> 
+		 const ul = document.querySelector('ul');
+		// const butt = document.querySelector('button');
+
+		 const inp = document.querySelector('input');
+		 inp.addEventListener('keypress', function(e)
+		 {
+            
+             if( e.keyCode===13 && inp.value.length>2)
+             {
+             	let list = document.createElement('li');
+             	list.addEventListener('click', myList);
+             	let textNode = inp.value;
+             	inp.value = '';
+             	let text = document.createTextNode(textNode);
+                ul.appendChild(list);
+                list.appendChild(text);
+
+             }
+		 })
+
+		 const lists = document.querySelectorAll('li');
+		 for(let x=0; x < lists.length; x++)
+		 {
+		   lists[x].addEventListener('click', myList)
+			
+		}
+
+
+    function myList()
+    {
+    	var ths = this.classList.toggle('red');
+
+            if(ths)
+            {
+			 	let create = document.createElement('span');
+			 	create.textContent = '  -----X';
+			 	
+			 	create.addEventListener('click', function()
+			 	{
+			 		this.parentElement.remove();
+                })
+
+                this.appendChild(create);
+
+                }
+                else{
+                	this.getElementsByTagName('span')[0].remove();
+                }
+    }
+
+
+
+	</script>
+
+</body>
+</html>

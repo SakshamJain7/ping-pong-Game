@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome</title>
+</head>
+<body>
+	<div class="hello"></div>
+    Name: <input type="text">
+    <button class="butt">ENTER</button>
+
+    <script>
+    	const butt = document.querySelector('button');
+    	const inp = document.querySelector('input');
+    	const text = document.querySelector('div.hello');
+
+    	butt.addEventListener('click', function(){
+             let temp = inp.value;
+             text.style.cssText = 'width: 800px; height: 100px; color: yellow;';
+             text.style.backgroundColor  = ' red';
+             text.innerHTML = `<h1> Welcome ${temp}, Log in to our site-- As you become the youngest BILLONARE very soon </h1>`;
+    	})
+    </script>
+</body>
+</html>

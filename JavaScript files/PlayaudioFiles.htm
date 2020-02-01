@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AudioFiles</title>
+</head>
+<body>
+	<button type="button">PLAY</button>
+
+
+	<script>
+		const but = document.querySelector('button');
+		 const sound = new Audio('sounds/mp3Sound.mp3');
+
+
+		but.addEventListener('click', function(){
+            let duration = sound.duration;
+            let muted = sound.muted;	
+            console.log(muted);
+
+             // sound.play();
+
+           const soundPlay =  sound.play(); 
+               if (soundPlay !== null){ 
+               soundPlay.catch(() => { sound.play(); })
+              }
+              setTimeout(function() {
+           sound.play(); 
+           sound.pause(); 
+              }, 0)
+		});
+	</script>
+</body>
+</html>
